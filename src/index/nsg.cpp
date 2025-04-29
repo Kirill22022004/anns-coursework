@@ -79,7 +79,7 @@ bool has_conflict(const std::vector<std::vector<float>>& data, int v, int p, con
     for (int r : R) {
         float dp = 0;
         for (size_t i = 0; i < data[v].size(); i++) {
-            dp += (data[p][i] - data[v][i]) * data[r][i] - data[v][i];
+            dp += (data[p][i] - data[v][i]) * (data[r][i] - data[v][i]);
         }
         if (dp / (euclidean_distance(data[p], data[v]) * euclidean_distance(data[r], data[v]) + 1e-9) > angle_threshold) {
             return true;
